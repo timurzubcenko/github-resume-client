@@ -21,8 +21,8 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path='/github-resume-client/' element={<MainPage arrUser={arrUser} setArrUser={setArrUser} />} />
-          <Route path='/github-resume-client/:username' element={<ResumePage arrUser={arrUser} setArrUser={setArrUser} />} />
+          <Route path='/' element={<MainPage arrUser={arrUser} setArrUser={setArrUser} />} />
+          <Route path='/:username' element={<ResumePage arrUser={arrUser} setArrUser={setArrUser} />} />
         </Routes>
       </div>
     </BrowserRouter>
