@@ -54,7 +54,7 @@ const MainPage = ({ arrUser, setArrUser }) => {
                     type="text"
                     onChange={onChange}
                 />
-                <Link to="/:username"><button onClick={getUsers}>Generate</button></Link>
+                <Link to="/github-resume-client/:username"><button onClick={getUsers}>Generate</button></Link>
             </div>
         </div>
     );

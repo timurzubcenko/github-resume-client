@@ -7,7 +7,7 @@ const ResumePage = ({ arrUser }) => {
         <div className={styles.resume}>
             <header>
                 <div className={`${styles.in_header} container`}>
-                    <Link to="/"><button>Back</button></Link>
+                    <Link to="/github-resume-client"><button>Back</button></Link>
                     <h1>Resume</h1>
                     <div></div>
                 </div>
