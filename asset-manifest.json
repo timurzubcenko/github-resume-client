@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.74b724a8.css",
-    "main.js": "/static/js/main.979d84f2.js",
-    "index.html": "/index.html",
-    "main.74b724a8.css.map": "/static/css/main.74b724a8.css.map",
-    "main.979d84f2.js.map": "/static/js/main.979d84f2.js.map"
+    "main.css": "/github-resume-client/static/css/main.74b724a8.css",
+    "main.js": "/github-resume-client/static/js/main.979d84f2.js",
+    "index.html": "/github-resume-client/index.html",
+    "main.74b724a8.css.map": "/github-resume-client/static/css/main.74b724a8.css.map",
+    "main.979d84f2.js.map": "/github-resume-client/static/js/main.979d84f2.js.map"
   },
   "entrypoints": [
     "static/css/main.74b724a8.css",
