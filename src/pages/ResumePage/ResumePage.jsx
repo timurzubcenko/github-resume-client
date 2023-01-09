@@ -1,13 +1,45 @@
 import React from 'react'
 import styles from './ResumePage.module.scss'
-import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { Link, useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import Loading from '../../components/UI/loading/Loading';
 
-const ResumePage = ({ arrUser }) => {
+const ResumePage = () => {
+    const username = useParams().username
+    console.log(username)
+
+    const [arrUser, setArrUser] = useState(null)
+
+    useEffect(() => {
+        setTimeout(() => {
+            axios.get('https://api.github.com/users/' + username)
+                .then(res => {
+                    console.log(res.data)
+                    setArrUser({
+                        name: res.data.login,
+                        avatar: res.data.avatar_url,
+                        followers: res.data.followers,
+                        following: res.data.following,
+                        created: res.data.created_at,
+                        public_repos: res.data.public_repos,
+                    })
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }, 2000)
+    }, [username])
+
+    if (arrUser === null) {
+        return <Loading />
+    }
+
     return (
         <div className={styles.resume}>
             <header>
                 <div className={`${styles.in_header} container`}>
-                    <Link to="/github-resume-client"><button>Back</button></Link>
+                    <Link to="/"><button>Back</button></Link>
                     <h1>Resume</h1>
                     <div></div>
                 </div>

@@ -2,27 +2,19 @@ import './App.css';
 import MainPage from './pages/MainPage/MainPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ResumePage from './pages/ResumePage/ResumePage';
-import { useState } from 'react';
 
 //https://api.github.com/users/timurzubcenko
 
 function App() {
 
-  const [arrUser, setArrUser] = useState({
-    name: '',
-    avatar: '',
-    followers: 0,
-    following: 0,
-    created: '',
-    public_repos: '',
-  })
-
   return (
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path='/github-resume-client/' element={<MainPage arrUser={arrUser} setArrUser={setArrUser} />} />
-          <Route path='/:username' element={<ResumePage arrUser={arrUser} setArrUser={setArrUser} />} />
+          <Route path='/' element={<MainPage />} />
+          <Route path='/github-resume-client' element={<MainPage />} />
+          <Route path='/user/:username' element={<ResumePage />} />
+          <Route path='/github-resume-client/user/:username' element={<ResumePage />} />
         </Routes>
       </div>
     </BrowserRouter>

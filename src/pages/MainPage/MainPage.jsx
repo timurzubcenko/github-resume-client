@@ -1,38 +1,19 @@
 import React, { useState } from 'react'
 import styles from './MainPage.module.scss'
-import axios from 'axios'
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
-const MainPage = ({ arrUser, setArrUser }) => {
+const MainPage = () => {
     const [input, setInput] = useState('')
+    const navigate = useNavigate()
 
     const onChange = (e) => {
         setInput(e.target.value)
     }
 
-    const getUsers = () => {
-        axios.get('https://api.github.com/users/' + input)
-            .then(res => {
-                console.log(res.data)
-                setArrUser({
-                    ...arrUser,
-                    name: res.data.login,
-                    avatar: res.data.avatar_url,
-                    followers: res.data.followers,
-                    following: res.data.following,
-                    created: res.data.created_at,
-                    public_repos: res.data.public_repos,
-                })
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
-
     const keyDown = (e) => {
         if (e.keyCode === 13) {
-            getUsers()
+            navigate("user/" + input)
         }
     }
 
@@ -54,7 +35,7 @@ const MainPage = ({ arrUser, setArrUser }) => {
                     type="text"
                     onChange={onChange}
                 />
-                <Link to="/github-resume-client/:username"><button onClick={getUsers}>Generate</button></Link>
+                <Link to={"user/" + input}><button>Generate</button></Link>
             </div>
         </div>
     );
